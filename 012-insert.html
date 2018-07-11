@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <button @click="insert">插入数据</button>
+    <div v-for="(item,index) in list" :key="item.id">
+      <input type="checkbox">
+      <span>{{index}} --{{item.name}}--{{item.age}} </span>
+      
+    </div>
+
+
+  </div>
+  <script src="./vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: "#app",
+      data: {
+        list: [
+          { id: 1, name: "zs", age: 18 },
+          { id: 2, name: "ls", age: 28 },
+          { id: 3, name: "ww", age: 20 },
+          { id: 4, name: "zl", age: 15 },
+          { id: 5, name: "lq", age: 30 }
+        ]
+      },
+      methods:{
+        insert(){
+          var obj = {
+            id:6,
+            name:"xh",
+            age:25
+          };
+          this.list.unshift(obj);
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

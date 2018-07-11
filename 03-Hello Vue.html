@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <h1>{{ msg }}</h1>
+  </div>
+
+  <script src="./vue.js"></script>
+  <script>
+    // Vue的使用步骤：
+    // 0 安装vue： npm i vue
+    // 1 引入vue
+    // 3 创建Vue实例
+    // 4 指定构造函数的参数，参数是对象
+    // 5 在html中创建一个id为app的元素，并且使用通过 {{}} 来直接使用data中的数据
+    
+    // 注意点：Vue是一个构造函数，首字母大写
+    // vm 就是 Vue 的实例
+    var vm = new Vue({
+      // el 配置项：指定了Vue管理的边界，只要在el对应HTML结构内部，才会收到Vue的管理
+      el: '#app',
+      // data 配置项：指定了Vue中需要使用的数据
+      data: {
+        msg: 'Hello Vue！！！'
+      }
+    })
+  </script>
+</body>
+
+</html>

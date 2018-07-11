@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+
+    <button @click="dong">动</button>
+    <button @click="ding">定</button>
+    <hr>
+    <h1 v-text="text"></h1>
+
+  </div>
+  <script src="./vue.js"></script>
+  <script>
+    var timeId;
+    var flag = true;
+    // 分割第一个文字拼接到最后面
+    var vm = new Vue({
+      el: "#app",
+      data: {
+        text: "Hello--World--!"
+      },
+      methods: {
+
+        dong() {
+          var that = this;
+            if(!flag){
+              return;
+            };
+            flag = false;
+           timeId = setInterval(function () {
+            var first = that.text.slice(0, 1);
+            var left = that.text.slice(1)
+            that.text = left + first;
+          }, 500)
+          console.log("dong")
+          
+        },
+        ding(){
+          clearInterval(timeId);
+          console.log("ding");
+          flag = true;
+        }
+
+      }
+    })
+
+
+  </script>
+</body>
+
+</html>

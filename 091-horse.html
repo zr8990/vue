@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+
+    <button v-on:click = "dong">动起来</button>
+    <button v-on:click = "ding">安静</button>
+    <hr>
+    <h1>{{content}}</h1>
+  </div>
+
+  <script src="./vue.js"></script>
+  <script>
+    var timeId;
+    var flag = 1;
+  var vm = new Vue({
+    el:"#app",
+    data:{
+      content:"欢迎使用VScode！"
+    },
+    methods:{
+      dong(){
+        if(!flag) return;
+        flag = 0;
+        timeId = setInterval(() => {
+        var first = this.content.substring(0,1)
+        var left = this.content.substring(1)
+        this.content = left + first;
+        },500)
+      },
+      ding(){
+        clearInterval(timeId);
+        flag = 1;
+      }
+    }
+  })
+  </script>
+</body>
+</html>

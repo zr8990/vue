@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <input type="text" v-model="num1">+
+    <input type="text" v-model="num2">
+    <button v-on:click="getSum">=</button>
+    结果为：<span v-text="sum"></span>
+  </div>
+  <!-- {{+num1 + +num2}} -->
+  <script src="./vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        num1:"",
+        num2:"",
+        sum:""
+
+      },
+      methods:{
+        getSum:function(){
+          console.log("点击求和")
+          this.sum = +this.num1+ +this.num2 
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
